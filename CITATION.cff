@@ -1,8 +1,19 @@
+
 cff-version: 1.2.0
 message: >-
-  If you use this software, please cite the following publications,
-  listed in order of importance (most important first).
-title: Audio Dynamic Range Compression Inversion
+  If you use DRCinv in your research, please cite the software
+  and the relevant publications listed below.
+
+type: software
+title: "DRCinv: Audio Dynamic Range Compression and Inversion"
+
+authors:
+  - family-names: Fourer
+    given-names: Dominique
+
+repository-code: "https://github.com/dfourer/DRCinv"
+license: MIT
+
 references:
   - type: conference-paper
     title: "Approche Hybride pour l’Inversion de la Compression Dynamique en Traitement Audio à l’aide de l’Apprentissage Profond"
@@ -16,7 +27,8 @@ references:
     year: 2025
     conference:
       name: "XXXe Colloque Francophone de Traitement du Signal et des Images (GRETSI 2025)"
-    url: https://hal.science/hal-05238777v1/file/2025_fourer1453.pdf
+    url: "https://hal.science/hal-05238777v1/file/2025_fourer1453.pdf"
+
   - type: article
     title: "Neural-Enhanced Dynamic Range Compression Inversion: A Hybrid Approach for Restoring Audio Dynamics"
     authors:
@@ -27,8 +39,9 @@ references:
       - family-names: Maaref
         given-names: Hichem
     year: 2024
-    doi: 10.48550/arXiv.2411.04337
-    url: https://arxiv.org/pdf/2411.04337
+    doi: "10.48550/arXiv.2411.04337"
+    url: "https://arxiv.org/abs/2411.04337"
+
   - type: article
     title: "Black-Box Optimization for Identifying and Inverting Audio Dynamic Range Control Effects"
     authors:
@@ -39,5 +52,5 @@ references:
       - family-names: Maaref
         given-names: Hichem
     year: 2026
-    doi: 10.48550/arXiv.2607.19645
-    url: https://arxiv.org/pdf/2607.19645
+    doi: "10.48550/arXiv.2607.19645"
+    url: "https://arxiv.org/abs/2607.19645"
