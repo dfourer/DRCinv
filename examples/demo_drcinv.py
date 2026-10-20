@@ -36,7 +36,7 @@
 #   SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # =============================================================================
 
-from drclibrary import drc_forward, drc_inverse
+from drcinv import drc_forward, drc_inverse
 import numpy as np
 import soundfile as sf
 import time
@@ -51,7 +51,7 @@ import matplotlib.pyplot as plt
 filename = Path(__file__).resolve().parent / "input.mp3"
 
 mode   = "exp"  # comp or exp
-optim  = "hybr"  # brentq or hybr
+optim  = "brentq"  # brentq (faster) or hybr
 
 x, Fs = sf.read(filename, dtype="float64")
 

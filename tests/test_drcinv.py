@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 
-from drclibrary import drc_forward, drc_inverse
+from drcinv import drc_forward, drc_inverse
 
 
 FS = 44100
