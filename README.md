@@ -66,21 +66,21 @@ The following plots reproduce the visual material linked from the [project webpa
 
 **Original vs. processed signal**
 
-![Original and compressed signals](docs/x_y_comp.png)
+![Original and compressed signals](https://fourer.fr/drc/x_y_comp.png)
 
 **Original vs. reconstructed signal**
 
-![Original and reconstructed signals after compression](docs/x_x_hat_comp.png)
+![Original and reconstructed signals after compression](https://fourer.fr/drc/x_x_hat_comp.png)
 
 ### Expander
 
 **Original vs. processed signal**
 
-![Original and expanded signals](docs/x_y_exp.png)
+![Original and expanded signals](https://fourer.fr/drc/x_y_exp.png)
 
 **Original vs. reconstructed signal**
 
-![Original and reconstructed signals after expansion](docs/x_x_hat_exp.png)
+![Original and reconstructed signals after expansion](https://fourer.fr/drc/x_x_hat_exp.png)
 
 ## Full audio demonstration
 
