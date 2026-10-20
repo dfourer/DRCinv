@@ -1,0 +1,51 @@
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Python packaging
+*.egg-info/
+build/
+dist/
+*.egg
+
+# Pytest and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated audio files
+*_listen_*.wav
+
+# Generated demo figures
+x_comp.pdf
+y_comp.pdf
+x_hatcomp.pdf
+x_x_hat_comp.pdf
+x_x_hat_comp.png
+x_y_comp.pdf
+x_y_comp.png
+
+x_exp.pdf
+y_exp.pdf
+x_hatexp.pdf
+x_x_hat_exp.pdf
+x_x_hat_exp.png
+x_y_exp.pdf
+x_y_exp.png
+ 
