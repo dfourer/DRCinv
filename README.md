@@ -40,7 +40,7 @@ The package requires Python 3.10 or later, NumPy and SciPy.
 
 ```python
 import numpy as np
-from drclibrary import drc_forward, drc_inverse
+from drcinv import drc_forward, drc_inverse
 
 Fs = 44100
 x = 0.1 * np.sin(2 * np.pi * 440 * np.arange(Fs) / Fs)
@@ -53,8 +53,6 @@ q = [-20, 4, 0.01, 0.1, 0.01, 0.1, 2]
 processed = drc_forward(x, Fs, q, mode="comp")
 reconstructed = drc_inverse(processed, Fs, q, mode="comp")
 ```
-
-**Import note:** The PyPI distribution is named `drcinv`, while the Python module in the current repository is `drclibrary` (`src/drclibrary.py`).
 
 The parameter vector is `q = [L, R, tau_v_att, tau_v_rel, tau_g_att, tau_g_rel, p]`, where `L` is the threshold in dBFS, `R` is the ratio, the four `tau` values are time constants in seconds, and `p` is the detector order (1 for peak, 2 for RMS-like detection).
 
@@ -129,7 +127,7 @@ q = [-10.0, 4.0, 0.003, 0.050, 0.002, 0.080, 2]
 The core of the example is:
 
 ```python
-from drclibrary import drc_forward, drc_inverse
+from drcinv import drc_forward, drc_inverse
 
 # x and Fs are loaded from the input audio file; q and mode are set above.
 y = drc_forward(x, Fs, q, mode=mode)
