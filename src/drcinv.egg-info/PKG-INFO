@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: drcinv
+Version: 0.1.0
+Summary: Python library for dynamic range compression and inversion
+Author: Dominique Fourer
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/dfourer/DRCinv
+Project-URL: Repository, https://github.com/dfourer/DRCinv
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.24
+Requires-Dist: scipy>=1.10
+Provides-Extra: test
+Requires-Dist: pytest>=7.0; extra == "test"
+
+ 
