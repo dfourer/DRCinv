@@ -551,7 +551,7 @@ def drc_inverse(y, Fs, q, mode="comp", optim="hybr"):
                     
                     elif optim == "hybr":
                     
-                        v_init = 0.5 * (v_low + v_high)
+                        v_init = v_init = ( beta * (abs_y / (gamma + gamma_bar * g_prev))**p + beta_bar * x_tilde_prev )**(1.0 / p)
                     
                         sol = root(
                             lambda v: np.array([zeta(v[0])]),
