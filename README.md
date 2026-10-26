@@ -162,15 +162,25 @@ python -m pytest tests/ -v
 
 ## Citation
 
-If you use this software in academic work, please cite the associated paper. The following entry is **provisional** and should be updated after publication:
+If you use DRCinv in your research, please cite the following preprint:
+
+H. Sun, D. Fourer, and H. Maaref, **"Neural-Enhanced Dynamic Range Compression Inversion: A Hybrid Approach for Restoring Audio Dynamics,"** *arXiv:2411.04337*, 2024.
+
+**Preprint:** [arXiv:2411.04337](https://arxiv.org/abs/2411.04337)
+
+**Publication status:** A related manuscript is currently under review at *IEEE/ACM Transactions on Audio, Speech, and Language Processing* (minor revision).
+
+### BibTeX
 
 ```bibtex
-@article{sun2026drcinv,
-  title   = {Hybrid Model-Driven Inversion of Audio Dynamic Range Compression and Expansion},
-  author  = {Sun, H. and Fourer, D. and Maaref, H.},
-  journal = {IEEE/ACM Transactions on Audio, Speech, and Language Processing},
-  year    = {2026},
-  note    = {Submitted manuscript}
+@misc{sun2024neural,
+  title={Neural-Enhanced Dynamic Range Compression Inversion: A Hybrid Approach for Restoring Audio Dynamics},
+  author={Sun, Haoran and Fourer, Dominique and Maaref, Hichem},
+  year={2024},
+  eprint={2411.04337},
+  archivePrefix={arXiv},
+  primaryClass={cs.SD},
+  doi={10.48550/arXiv.2411.04337}
 }
 ```
 
