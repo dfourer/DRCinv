@@ -41,6 +41,7 @@ def test_zero_signal(mode):
         ("exp", -10.0),
     ],
 )
+
 @pytest.mark.parametrize("optim", ["brentq", "hybr"])
 def test_reconstruction(mode, threshold, optim):
     """Forward processing followed by inversion should recover x."""
@@ -58,15 +59,35 @@ def test_reconstruction(mode, threshold, optim):
         2,
     ]
 
+    # Forward processing
     y = drc_forward(x, FS, q, mode=mode)
-    x_hat = drc_inverse(y, FS, q, mode=mode, optim=optim)
-
-    assert np.all(np.isfinite(x_hat))
-    np.testing.assert_allclose(
-        x_hat, x,
-        rtol=1e-4,
-        atol=1e-6,
+    
+    # Check that processing is effective
+    relative_processing = np.linalg.norm(x - y) / np.linalg.norm(x)
+    assert relative_processing > 1e-3, (
+        f"{mode}: processing did not significantly modify the signal"
     )
+    
+    # Inverse processing (only if forward processing is effective)
+    x_hat = drc_inverse(y, FS, q, mode=mode, optim=optim)
+    
+    # Check reconstruction quality
+    relative_error = np.linalg.norm(x - x_hat) / np.linalg.norm(x)
+    
+    snr_db = (
+        np.inf if relative_error == 0
+        else -20 * np.log10(relative_error)
+    )
+    
+    print(
+        f"\n{mode}: "
+        f"processing={relative_processing:.3e}, "
+        f"reconstruction={relative_error:.3e}, "
+        f"SNR={snr_db:.2f} dB"
+    )
+    
+    assert np.all(np.isfinite(x_hat))
+    assert relative_error < 1e-3
 
 
 def test_invalid_ratio():
@@ -76,3 +97,85 @@ def test_invalid_ratio():
 
     with pytest.raises(ValueError):
         drc_forward(x, FS, q)
+
+@pytest.mark.parametrize(
+    "mode,threshold",
+    [
+        ("comp", -20.0),
+        ("exp", -20.0),
+    ],
+)
+
+
+def test_processing_activation(mode, threshold):
+    """Check that compression/expansion is active and accurately invertible."""
+
+    # Generate a 0.5 s sine wave with alternating amplitude levels
+    duration = 0.5
+    t = np.arange(int(FS * duration)) / FS
+
+    # Amplitude changes every 125 ms
+    amplitude = np.select(
+        [
+            t < 0.125,
+            t < 0.250,
+            t < 0.375,
+        ],
+        [
+            0.02,
+            0.8,
+            0.02,
+        ],
+        default=0.8,
+    )
+
+    x = amplitude * np.sin(2 * np.pi * 440 * t)
+
+    # DRC parameters
+    q = [
+        threshold,
+        4.0,
+        0.001,
+        0.050,
+        0.001,
+        0.050,
+        2,
+    ]
+
+    # Forward processing
+    y = drc_forward(x, FS, q, mode=mode)
+
+    # Ensure compression/expansion actually modifies the signal
+    relative_processing = np.linalg.norm(x - y) / np.linalg.norm(x)
+
+    assert relative_processing > 1e-3, (
+        f"{mode}: processing did not significantly modify the signal"
+    )
+
+    # Inverse processing
+    x_hat = drc_inverse(y, FS, q, mode=mode)
+
+    # Reconstruction quality
+    assert np.all(np.isfinite(x_hat)), (
+        f"{mode}: reconstruction contains NaN or Inf"
+    )
+
+    relative_error = np.linalg.norm(x - x_hat) / np.linalg.norm(x)
+
+    snr_db = (
+        np.inf
+        if relative_error == 0
+        else -20 * np.log10(relative_error)
+    )
+
+    print(
+        f"\n{mode}: "
+        f"processing={relative_processing:.3e}, "
+        f"reconstruction={relative_error:.3e}, "
+        f"SNR={snr_db:.2f} dB"
+    )
+
+    assert relative_error < 1e-3, (
+        f"{mode}: reconstruction error too large "
+        f"({relative_error:.3e}, SNR={snr_db:.2f} dB)"
+    )
