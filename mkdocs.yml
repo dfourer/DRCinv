@@ -1,0 +1,28 @@
+site_name: DRCinv
+site_description: Audio Dynamic Range Compression, Expansion and Model-Based Inversion
+
+repo_url: https://github.com/dfourer/DRCinv
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - DRC Model: model.md
+  - Inversion: inversion.md
+  - API Reference: api.md
+  - Audio Examples: examples.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
