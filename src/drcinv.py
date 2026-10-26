@@ -606,6 +606,7 @@ def drc_inverse(y, Fs, q, mode="comp", optim="hybr"):
                     )
                 
                 elif optim == "hybr":
+                    
                     v_init = ( beta * (abs_y / (gamma + gamma_bar * g_prev))**p + beta_bar * x_tilde_prev )**(1.0 / p)
                 
                     sol = root(
