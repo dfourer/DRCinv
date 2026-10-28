@@ -1,6 +1,7 @@
 # DRCinv — Audio Compression/Expansion Model-Based Inversion
 
-[![Documentation Status](https://readthedocs.org/projects/drcinv/badge/?version=latest)](https://drcinv.readthedocs.io/en/latest/?badge=latest)
+[![PyPI version](https://img.shields.io/pypi/v/drcinv.svg)](https://pypi.org/project/drcinv/)
+[![Documentation Status](https://readthedocs.org/projects/drcinv/badge/?version=latest)](https://drcinv.readthedocs.io/en/latest/)
 
 **DRCinv** is a Python implementation of forward dynamic range compression and expansion, together with model-based inversion for audio signal reconstruction.
 
