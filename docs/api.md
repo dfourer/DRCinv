@@ -22,3 +22,22 @@ downward compressor or downward expander.
     options:
       show_root_heading: true
       show_source: false
+
+## Parameter Estimation
+
+The `drcinv.drcparam` namespace provides neural and black-box estimators.
+
+::: drcinv.drcparam.MEEParameterEstimator
+    options:
+      show_root_heading: true
+      show_source: false
+
+::: drcinv.drcparam.BlackBoxParameterEstimator
+    options:
+      show_root_heading: true
+      show_source: false
+
+::: drcinv.drcparam.estimate_drc_parameters
+    options:
+      show_root_heading: true
+      show_source: false

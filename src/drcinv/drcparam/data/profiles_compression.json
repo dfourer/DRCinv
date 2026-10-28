@@ -1,0 +1,272 @@
+{
+  "1": {
+    "param1": -30.6,
+    "param2": 2.3,
+    "param3": 73.9,
+    "param4": 20.3,
+    "param5": 451.5,
+    "param6": 1153.6,
+    "param7": 2.0
+  },
+  "10": {
+    "param1": -26.5,
+    "param2": 10.8,
+    "param3": 114.7,
+    "param4": 68.8,
+    "param5": 209.2,
+    "param6": 145.9,
+    "param7": 2.0
+  },
+  "11": {
+    "param1": -43.7,
+    "param2": 8.4,
+    "param3": 35.6,
+    "param4": 107.0,
+    "param5": 432.1,
+    "param6": 750.5,
+    "param7": 2.0
+  },
+  "12": {
+    "param1": -20.8,
+    "param2": 6.5,
+    "param3": 84.1,
+    "param4": 101.9,
+    "param5": 500.0,
+    "param6": 347.4,
+    "param7": 2.0
+  },
+  "13": {
+    "param1": -22.4,
+    "param2": 11.3,
+    "param3": 124.9,
+    "param4": 63.7,
+    "param5": 364.3,
+    "param6": 831.1,
+    "param7": 2.0
+  },
+  "14": {
+    "param1": -40.4,
+    "param2": 10.0,
+    "param3": 112.1,
+    "param4": 99.4,
+    "param5": 374.0,
+    "param6": 1355.1,
+    "param7": 2.0
+  },
+  "15": {
+    "param1": -52.7,
+    "param2": 4.4,
+    "param3": 104.5,
+    "param4": 35.6,
+    "param5": 199.5,
+    "param6": 1919.4,
+    "param7": 2.0
+  },
+  "16": {
+    "param1": -51.8,
+    "param2": 2.0,
+    "param3": 117.2,
+    "param4": 117.2,
+    "param5": 277.0,
+    "param6": 549.0,
+    "param7": 2.0
+  },
+  "17": {
+    "param1": -38.0,
+    "param2": 5.2,
+    "param3": 5.0,
+    "param4": 40.7,
+    "param5": 296.4,
+    "param6": 1717.9,
+    "param7": 2.0
+  },
+  "18": {
+    "param1": -51.0,
+    "param2": 3.3,
+    "param3": 28.0,
+    "param4": 127.4,
+    "param5": 170.4,
+    "param6": 669.9,
+    "param7": 2.0
+  },
+  "19": {
+    "param1": -29.8,
+    "param2": 9.2,
+    "param3": 33.1,
+    "param4": 56.0,
+    "param5": 131.6,
+    "param6": 1959.7,
+    "param7": 2.0
+  },
+  "2": {
+    "param1": -55.9,
+    "param2": 12.1,
+    "param3": 25.4,
+    "param4": 50.9,
+    "param5": 54.1,
+    "param6": 1274.5,
+    "param7": 2.0
+  },
+  "20": {
+    "param1": -29.0,
+    "param2": 11.8,
+    "param3": 45.8,
+    "param4": 81.5,
+    "param5": 412.8,
+    "param6": 992.3,
+    "param7": 2.0
+  },
+  "21": {
+    "param1": -28.2,
+    "param2": 5.7,
+    "param3": 10.1,
+    "param4": 17.8,
+    "param5": 34.7,
+    "param6": 428.1,
+    "param7": 2.0
+  },
+  "22": {
+    "param1": -50.2,
+    "param2": 12.6,
+    "param3": 22.9,
+    "param4": 122.3,
+    "param5": 83.2,
+    "param6": 1395.4,
+    "param7": 2.0
+  },
+  "23": {
+    "param1": -23.3,
+    "param2": 12.9,
+    "param3": 12.7,
+    "param4": 7.6,
+    "param5": 112.2,
+    "param6": 25.0,
+    "param7": 2.0
+  },
+  "24": {
+    "param1": -44.5,
+    "param2": 7.8,
+    "param3": 15.2,
+    "param4": 86.6,
+    "param5": 306.1,
+    "param6": 1838.8,
+    "param7": 2.0
+  },
+  "25": {
+    "param1": -46.1,
+    "param2": 11.0,
+    "param3": 122.3,
+    "param4": 12.7,
+    "param5": 189.8,
+    "param6": 1113.3,
+    "param7": 2.0
+  },
+  "26": {
+    "param1": -56.7,
+    "param2": 2.8,
+    "param3": 94.3,
+    "param4": 28.0,
+    "param5": 102.6,
+    "param6": 186.2,
+    "param7": 2.0
+  },
+  "27": {
+    "param1": -24.9,
+    "param2": 10.5,
+    "param3": 38.2,
+    "param4": 43.3,
+    "param5": 335.2,
+    "param6": 226.5,
+    "param7": 2.0
+  },
+  "28": {
+    "param1": -48.6,
+    "param2": 8.9,
+    "param3": 107.0,
+    "param4": 104.5,
+    "param5": 25.0,
+    "param6": 1798.5,
+    "param7": 2.0
+  },
+  "29": {
+    "param1": -49.4,
+    "param2": 10.2,
+    "param3": 127.4,
+    "param4": 71.3,
+    "param5": 92.9,
+    "param6": 508.7,
+    "param7": 2.0
+  },
+  "3": {
+    "param1": -55.1,
+    "param2": 13.4,
+    "param3": 43.3,
+    "param4": 76.4,
+    "param5": 354.6,
+    "param6": 468.4,
+    "param7": 2.0
+  },
+  "30": {
+    "param1": -24.1,
+    "param2": 14.2,
+    "param3": 81.5,
+    "param4": 58.6,
+    "param5": 180.1,
+    "param6": 871.4,
+    "param7": 2.0
+  },
+  "4": {
+    "param1": -39.6,
+    "param2": 13.1,
+    "param3": 66.2,
+    "param4": 10.1,
+    "param5": 325.5,
+    "param6": 1435.7,
+    "param7": 2.0
+  },
+  "5": {
+    "param1": -31.4,
+    "param2": 12.3,
+    "param3": 99.4,
+    "param4": 91.7,
+    "param5": 160.7,
+    "param6": 790.8,
+    "param7": 2.0
+  },
+  "6": {
+    "param1": -60.0,
+    "param2": 15.0,
+    "param3": 130.0,
+    "param4": 89.2,
+    "param5": 393.4,
+    "param6": 1758.2,
+    "param7": 2.0
+  },
+  "7": {
+    "param1": -47.8,
+    "param2": 5.4,
+    "param3": 50.9,
+    "param4": 84.1,
+    "param5": 403.1,
+    "param6": 1677.6,
+    "param7": 2.0
+  },
+  "8": {
+    "param1": -46.9,
+    "param2": 4.9,
+    "param3": 48.4,
+    "param4": 66.2,
+    "param5": 257.7,
+    "param6": 1516.3,
+    "param7": 2.0
+  },
+  "9": {
+    "param1": -45.3,
+    "param2": 2.5,
+    "param3": 89.2,
+    "param4": 114.7,
+    "param5": 344.9,
+    "param6": 1234.2,
+    "param7": 2.0
+  }
+}

@@ -8,3 +8,4 @@ prune .github
 exclude .readthedocs.yaml
 exclude .pre-commit-config.yaml
 exclude Makefile 
+recursive-include src/drcinv/drcparam/data *.json *.npz

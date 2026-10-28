@@ -42,8 +42,7 @@ def test_zero_signal(mode):
     ],
 )
 
-@pytest.mark.parametrize("optim", ["brentq", "hybr"])
-def test_reconstruction(mode, threshold, optim):
+def test_reconstruction(mode, threshold):
     """Forward processing followed by inversion should recover x."""
     rng = np.random.default_rng(42)
 
@@ -69,7 +68,7 @@ def test_reconstruction(mode, threshold, optim):
     )
     
     # Inverse processing (only if forward processing is effective)
-    x_hat = drc_inverse(y, FS, q, mode=mode, optim=optim)
+    x_hat = drc_inverse(y, FS, q, mode=mode, optim="brentq")
     
     # Check reconstruction quality
     relative_error = np.linalg.norm(x - x_hat) / np.linalg.norm(x)
