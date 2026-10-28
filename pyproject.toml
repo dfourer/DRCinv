@@ -44,8 +44,9 @@ bayesopt = [
 ]
 
 [project.urls]
-Homepage   = "https://hdrc-inv.github.io/"
-Repository = "https://github.com/dfourer/DRCinv"
+Homepage      = "https://hdrc-inv.github.io/"
+Repository    = "https://github.com/dfourer/DRCinv"
+Documentation = "https://drcinv.readthedocs.io/en/latest/"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
