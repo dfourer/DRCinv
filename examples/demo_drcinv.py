@@ -51,7 +51,7 @@ import matplotlib.pyplot as plt
 filename = Path(__file__).resolve().parent / "input.mp3"
 
 mode   = "exp"  # comp or exp
-optim  = "brentq"  # brentq (faster) or hybr
+optim  = "brentq"  # Numba-compiled bounded Brent solver
 
 x, Fs = sf.read(filename, dtype="float64")
 

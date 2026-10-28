@@ -34,7 +34,12 @@ Once the `drcinv` distribution is published on PyPI, it can be installed with:
 pip install drcinv
 ```
 
-The package requires Python 3.10 or later, NumPy and SciPy.
+The core package requires NumPy, SciPy, and Numba. Install the optional PyTorch
+dependency when using the MEE parameter estimator:
+
+```bash
+pip install "drcinv[param]"
+```
 
 ## Quick start
 
@@ -56,7 +61,100 @@ reconstructed = drc_inverse(processed, Fs, q, mode="comp")
 
 The parameter vector is `q = [L, R, tau_v_att, tau_v_rel, tau_g_att, tau_g_rel, p]`, where `L` is the threshold in dBFS, `R` is the ratio, the four `tau` values are time constants in seconds, and `p` is the detector order (1 for peak, 2 for RMS-like detection).
 
-Set `mode="comp"` for downward compression or `mode="exp"` for downward expansion. The inverse function also supports the numerical solver option `optim="hybr"` (default) or `optim="brentq"`.
+Set `mode="comp"` for downward compression or `mode="exp"` for downward expansion. The inverse uses the Numba-compiled bounded Brent solver; `optim="brentq"` is the only supported setting and the default.
+
+## Estimate unknown compression parameters with MEE
+
+`drcparam` integrates the Music Effects Encoder (MEE) from the research code.
+The default model estimates the six continuous compression controls and adds
+the fixed RMS-like detector order, returning the seven-element vector expected
+by `drc_inverse`:
+
+```python
+import soundfile as sf
+from drcinv.drcparam import MEEParameterEstimator
+from drcinv import drc_inverse
+
+y, sample_rate = sf.read("compressed.wav", always_2d=False)
+
+# Reuse one estimator when processing multiple signals.
+estimator = MEEParameterEstimator(device="auto")
+parameters = estimator.estimate(y, sample_rate)
+q = parameters.as_vector()
+x_hat = drc_inverse(y, sample_rate, q, mode="comp")
+
+print(parameters.as_dict())
+print(parameters.normalized)
+```
+
+The input may use any native sample rate. It is converted to mono, then
+center-cropped or zero-padded to the five-second duration used in training;
+it is not resampled or peak-normalized. Time constants returned by the public
+API are in seconds and can be passed directly to `drcinv`.
+
+The ~337 MiB checkpoint is not included in the PyPI wheel. On first inference,
+it is downloaded from the `v0.2.0` GitHub Release asset
+`MEE_compression_large.pt`, verified with SHA-256, and cached under
+`$XDG_CACHE_HOME/drcinv` (or `~/.cache/drcinv`). For offline use:
+
+```python
+estimator = MEEParameterEstimator(
+    checkpoint_path="/path/to/MEE_compression_large.pt",
+    device="cpu",
+)
+```
+
+Before publishing `v0.2.0`, upload the checkpoint copied from
+`pretrained/DRC/MedleyDB/MEE/MEE_large.pt` with the exact asset name above.
+Its expected SHA-256 is
+`c471092038d81a0f4a23ea8daec6f98afb5f0936b0924c805dc9b9343f1c41e2`.
+
+## Black-box parameter estimation
+
+`drcparam` also provides derivative-free estimation in AQFeature space. Each
+candidate parameter vector is inverted, represented by selected audio-quality
+features, and compared with a dry-audio reference point using a regularized
+Mahalanobis distance.
+
+The feature-selection method is intentionally not chosen by the library. Pass
+one of `"mrmr"`, `"mutual_information"`, `"binary_fisher"`, or
+`"inverse_fisher"` explicitly:
+
+```python
+from drcinv.drcparam import BlackBoxParameterEstimator
+
+estimator = BlackBoxParameterEstimator(
+    reference_method="mutual_information",  # required
+    process_type="compression",
+    optimizer="powell",
+    max_evaluations=100,
+)
+result = estimator.estimate_result(y, sample_rate)
+q = result.parameters.as_vector()
+
+print(q)
+print(result.objective, result.success, result.message)
+```
+
+The packaged reference points cover all four feature-selection methods for
+both compression and expansion. `powell` and `differential_evolution` use
+SciPy. `patternsearch` requires `drcinv[patternsearch]`; `bayesopt` requires
+`drcinv[bayesopt]`.
+
+For a one-shot call, select either estimator with `method`:
+
+```python
+from drcinv.drcparam import estimate_drc_parameters
+
+q_mee = estimate_drc_parameters(y, sample_rate, method="mee")
+q_black_box = estimate_drc_parameters(
+    y,
+    sample_rate,
+    method="black_box",
+    reference_method="mrmr",
+    process_type="compression",
+)
+```
 
 ## Illustrations
 
@@ -107,7 +205,7 @@ At the beginning of `examples/demo_drcinv.py`, choose the processing mode and in
 
 ```python
 mode = "exp"     # "comp" (compression) or "exp" (expansion)
-optim = "hybr"   # "hybr" or "brentq"
+optim = "brentq" # Numba-compiled bounded Brent solver
 ```
 
 The example defines separate parameter vectors for compression and expansion. The **compression** settings are:

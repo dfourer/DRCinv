@@ -19,12 +19,10 @@ The inverse model is evaluated with:
 x_hat = drc_inverse(y, Fs, q, mode="comp")
 ```
 
-## Numerical solvers
+## Numerical solver
 
-Two optimization methods are available:
-
-- `optim="hybr"`
-- `optim="brentq"`
+The inverse uses a Numba-compiled bounded Brent solver. The supported setting
+is `optim="brentq"`, which is also the default.
 
 ## Reconstruction accuracy
 
